@@ -14,7 +14,6 @@ import com.xohoon.member.dto.User;
 import lombok.extern.slf4j.Slf4j;
 
 @Service
-@Slf4j
 public class UserServiceImpl implements UserService {
 	@Autowired
 	private UserRepository userRepository;
