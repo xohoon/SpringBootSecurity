@@ -7,10 +7,14 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
+import lombok.AllArgsConstructor;
+
 @Configuration
 @EnableWebSecurity
+@AllArgsConstructor
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 	
+	private MemberService memberService;
 	// 커스텀 인증을 구현하는 클래스 ,, 주입식 Component
 	@Autowired
 	private UserAuthenticationProvider authenticationProvider;
