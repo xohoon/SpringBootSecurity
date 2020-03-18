@@ -62,4 +62,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		auth.userDetailsService(userDetailsService).passwordEncoder(bCryptPasswordEncoder());
 	}
 	
+	/*
+	 * 
+	 * 2.** 버전부터 authenticationManager를 노출시키기 위해 WebSecurityConfigurerAdapter의
+	 * authenticationManagerBean를 오버라이드 하고 bean으로 등록 후에 사용 해야 한다고 한다.
+	 * 
+	 */
+	@Bean
+    @Override
+    public AuthenticationManager authenticationManagerBean() throws Exception {
+        return super.authenticationManagerBean();
+    }
 }
