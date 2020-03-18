@@ -2,21 +2,53 @@ plugins {
 	id 'org.springframework.boot' version '2.2.5.RELEASE'
 	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
 	id 'java'
+	id 'war'
 }
 
 group = 'com.xohoon'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
 
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
 repositories {
 	mavenCentral()
 }
 
 dependencies {
+	// Spring Security
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
+	
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
+	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.1'
+	compileOnly 'org.projectlombok:lombok'
+	runtimeOnly 'mysql:mysql-connector-java'
+	annotationProcessor 'org.projectlombok:lombok'
+	providedRuntime "org.springframework.boot:spring-boot-starter-tomcat"
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
+	compile 'org.apache.tomcat.embed:tomcat-embed-jasper'
+    compile('javax.servlet:jstl:1.2')
+    
+    compile group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1'
+	compile group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.2'
+    // jsoup
+	compile group: 'org.jsoup', name: 'jsoup', version: '1.11.3'
+	// mail
+	compile("org.springframework.boot:spring-boot-starter-mail")
+	compile group: 'javax.mail', name: 'javax.mail-api', version: '1.6.0'
+	// js update
+	
+//	compile('org.springframework.boot:spring-boot-devtools')
 }
 
 test {
