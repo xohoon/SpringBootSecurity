@@ -1,21 +1,22 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
-<meta charset="UTF-8">
-<title>IEH에 오신것을 환영합니다.</title>
+<meta charset="UTF-8" />
+<title>Main</title>
 </head>
 <body>
-<h2>IEH에서 당신을 증명해 드립니다.</h2><br>
-<input type="button" value="로그인" id="inBtn" class="btn btn-success">
-<input type="button" value="회원가입" id="upBtn" class="btn btn-info"><br>
+	<span sec:authentication="name"></span>
+	<span sec:authentication="principal.authorities"></span>
 
+	<div sec:authorize="hasAuthority('ADMIN')">- only admin!!!!</div>
+	<div sec:authorize="hasAuthority('USER')">- only user</div>
+
+	<form th:action="@{/logout}" method="post">
+		<input type="submit" value="Sign Out" />
+	</form>
+
+	<a th:attr="href=@{/admin}">admin</a>
+	<a th:attr="href=@{/user}">user</a>
 </body>
-<!-- bootstrap css -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-<!-- jquery & bootstrap js -->
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="/static/js/jquery-3.1.1.min.js"></script>
-<script type="text/javascript" src="/static/js/main.js"></script>
 </html>
