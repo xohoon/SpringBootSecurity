@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -7,10 +9,10 @@
 <body>
 	Registration
 	<form name="userForm" th:action="@{/registration}" method="post">
-		name : <input type="text" name="username" id="username" /> password :
-		<input type="text" name="password" id="password" /> <br /> ADMIN <input
-			type="checkbox" name="roles" value="ADMIN" /> | USER <input
-			type="checkbox" name="roles" value="USER" />
+		name : <input type="text" name="username" id="username" />
+		password : <input type="text" name="password" id="password" /> <br />
+		ADMIN <input type="checkbox" name="roles" value="ADMIN" />
+		 | USER <input type="checkbox" name="roles" value="USER" />
 		<hr />
 		<input type="submit" value="join" />
 	</form>

@@ -14,9 +14,10 @@ import org.springframework.stereotype.Component;
 import com.xohoon.domain.repository.UserRepository;
 import com.xohoon.member.dto.Role;
 import com.xohoon.member.dto.User;
- 
+
 @Component
 public class UserDetailsServiceImpl implements UserDetailsService {
+	
 	@Autowired
 	UserRepository userRepository;
 
@@ -32,4 +33,5 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 		return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(),
 				grantedAuthorities);
 	}
+	
 }

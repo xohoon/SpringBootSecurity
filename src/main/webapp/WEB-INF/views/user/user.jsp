@@ -7,11 +7,6 @@
 <title></title>
 </head>
 <body>
-	<script type="text/javascript">
-	<!--
-		// 403에러메세지가 발생했을 경우 이전페이지로이동한다. 
-		history.back(-1);
-	//-->
-	</script>
+USER PAGE
 </body>
 </html>
